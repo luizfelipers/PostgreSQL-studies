@@ -16,3 +16,5 @@ insert into customers (id, first_name, age, email_id) values (2, ‘dee’, 44, 
 
 -- inserção de valores na tabela customers, desconsiderando os valores da coluna 'first_name'
 insert into customers (id, last_name, age, email_id) values (3, ‘dedede’, 12, ‘fakemail@phub.com’);
+
+insert into customers (id, last_name, age, email_id) values (3, ‘dedede’, 12, ‘fakemail@phub.com’),(4, ‘deddsdssdede’, 22, ‘fakemail2@phasdasub.com’);

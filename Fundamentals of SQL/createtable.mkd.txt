@@ -1,0 +1,16 @@
+﻿CREATE TABLE customers(
+id INT,
+        last_name VARCHAR,
+        first_name VARCHAR,
+        age INT,
+        email_id VARCHAR
+);
+
+
+insert into customers values (1, ‘bee’, ‘cee’, 32, ‘bc@xyz.com’);
+
+
+insert into customers (id, first_name, age, email_id) values (2, ‘dee’, 44, ‘emaildoido@email.com’);
+
+
+insert into customers (id, last_name, age, email_id) values (3, ‘dedede’, 12, ‘fakemail@phub.com’);

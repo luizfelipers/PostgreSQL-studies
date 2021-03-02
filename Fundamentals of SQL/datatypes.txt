@@ -1,0 +1,25 @@
+# DataTypes
+
+TYPE: Description -> Example
+
+INT: Whole Numbers -> Age, quantity;
+NUMERIC(P,S): Decimal Numbers -> Height, Price, Weight.   *P Stands for the Max number of digits, and S is the number of digits after the comma;
+SERIAL: Auto incrementing integer -> Id's (Primary Keys);
+
+
+# String DataTypes
+CHAR(N): Fixed length string of length N -> Gender, State;
+VARCHAR(N): Varying length string of maximum length N -> Name, email;
+TEXT: Varying length string with no max length -> Comments, Reviews;
+
+# Time Datatypes
+
+TIME: Holds the time value HH:MM:SS (Hours:Minutes:Seconds) -> ;
+DATE: Date value like a calendar YYYY-MM-DD (Year-Month-Day) -> Date of Birth;
+TIMESTAMP: Date and Time YYYY-MM-DD HH:MM:SS (Year-Month-Day Hours:Minutes:Seconds) -> Order time;
+
+# Other Datatypes
+
+BOOLEAN: Holds binary values of True or False -> In Stock / Out of Stock;
+ENUM: Holds a limited set of values of users choice -> Gender ('Male', 'Female');
+

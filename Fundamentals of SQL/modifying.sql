@@ -64,4 +64,9 @@ SELECT * FROM examples;
 -- atualizando o valor de duas colunas(first_name e age), do registro de id 5
 UPDATE examples SET first_name = 'Jimbo', age = 55 WHERE examples.id = 5;
 
+-- comando DELETE
 
+-- deleta da tabela EXAMPLES, o registro de id de número 2
+DELETE FROM examples WHERE id = 2;
+-- deleta da tabela Examples, todos os registros onde o valor de nationality seja 'GBR'(GreatBritain)
+DELETE FROM examples WHERE nationality = 'GBR'

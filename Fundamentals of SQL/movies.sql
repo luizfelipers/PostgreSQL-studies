@@ -21,7 +21,7 @@ CREATE TABLE actors(
   date_of_birth DATE
 
 );
-
+-- creating the main table (Movies)
 CREATE TABLE movies(
   id SERIAL PRIMARY KEY,
   movie_name VARCHAR(50),
@@ -34,7 +34,7 @@ CREATE TABLE movies(
 
 );
 
-
+-- table for data about revenues $$ of movies
 CREATE TABLE movie_revenues(
   id SERIAL PRIMARY KEY,
   movie_id REFERENCES movies(id),
@@ -42,6 +42,7 @@ CREATE TABLE movie_revenues(
   international_takings NUMERIC(6,2)
 );
 
+-- creating table for the movie actors that is basically a junction of two tables
 CREATE TABLE movie_actors(
   movie_id REFERENCES movies(id);
   actor_id REFERENCES actors(id);

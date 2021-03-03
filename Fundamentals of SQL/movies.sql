@@ -22,3 +22,27 @@ CREATE TABLE actors(
 
 );
 
+CREATE TABLE movies(
+  id SERIAL PRIMARY KEY,
+  movie_name VARCHAR(50),
+  movie_length INT, 
+  movie_lang VARCHAR(20),
+  release_date DATE,
+  age_certificate CHAR(5),
+  director_id INT REFERENCES directors(id)
+  
+
+);
+
+
+CREATE TABLE movie_revenues(
+  id SERIAL PRIMARY KEY,
+  movie_id REFERENCES movies(id),
+  domestic_takings NUMERIC(6,2),
+  international_takings NUMERIC(6,2)
+);
+
+CREATE TABLE movie_actors(
+  movie_id REFERENCES movies(id);
+  actor_id REFERENCES actors(id);
+  PRIMARY KEY (movie_id, actor_id) -- chave primária composta da junção dos valores das duas chaves estrangeiras

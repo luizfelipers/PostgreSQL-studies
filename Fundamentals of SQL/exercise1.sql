@@ -39,3 +39,40 @@ ALTER TABLE owners ALTER COLUMN last_name TYPE VARCHAR(50);
 
 SELECT * FROM owners;
 SELECT * FROM pets;
+
+-- CHALLENGE 1 
+
+-- 1) INSERT DATA INTO THE owners TABLE
+
+	
+	SELECT * FROM owners;
+	
+	INSERT INTO owners(first_name, last_name, city, state, email)
+	VALUES ('Samuel', 'Smith', 'Boston','MA', 'samsmith@gmail.com'),
+	('Emma','Johnson','Seattle','WA','emjohnson@gmail.com'),
+	('John', 'Oliver', 'New York', 'NY', 'johnoliver@gmail.com'),
+	('Olivia', 'Brown', 'San Francisco', 'CA', 'oliviabrown@gmail.com'),
+	('Simon', 'Smith','Dallas','TX', 'sismith@gmail.com');
+	
+	INSERT INTO owners(first_name, last_name, city, state, email) 
+	VALUES (null, 'Maxwell', null , 'CA', 'lordmaxwell@gmail.com');
+	
+
+-- 2) INSERT DATA INTO THE pets TABLE
+SELECT * FROM pets;
+	
+	INSERT INTO pets (species, full_name, age, owner_id)
+	VALUES ('Dog', 'Rex', 6, 1),
+	('Rabbit', 'Fluffy', 2, 5),
+	('Cat', 'Tom', 8, 2),
+	('Mouse', 'Jerry', 2, 2),
+	('Dog', 'Biggles', 4, 1),
+	('Tortoise', 'Squirtle', 42, 3)
+	;
+	
+-- 3) Change Fluffy's age to 3 inside the Pets Table
+	UPDATE pets SET age = 3 WHERE full_name = 'Fluffy';
+	
+	SELECT * FROM owners;
+-- 4) DELETE Mr. Maxwell register in the owners table
+	DELETE FROM owners WHERE last_name = 'Maxwell';

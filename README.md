@@ -4,4 +4,6 @@ This repo is intended to be the second step towards the objectives listed on htt
 For this task, the DBMS that's going to be used will be PostgreSQL, and the subjects covered will be similar to my SQL-Restudies repo (linked above), but trying to reach further topics like Object-Relational Mapping and Complex Data Types. The next step of this journey will be learning about NoSQL, primarily using MongoDB.
 
 
+PS: I apologize for the inconsistency of the commenting language. Sometimes I comment in English, sometimes in Portuguese.
+
 ![image](https://user-images.githubusercontent.com/26651389/109493931-f1197980-7a6b-11eb-83e8-817b4f237e3b.png)

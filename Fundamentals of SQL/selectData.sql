@@ -98,3 +98,19 @@ SELECT movie_name, movie_length, release_date FROM movies WHERE movie_length BET
 
 -- seleciona dados onde os valores da linguagem estejam entre English e Portuguese. É medido de forma alfabética
 SELECT * FROM movies WHERE movie_lang BETWEEN 'English' and 'Portuguese';
+
+
+
+-- ORDER BY
+-- orders the result returned by a specific column
+-- syntax:
+-- SELECT columns FROM table ORDER BY column;
+
+-- select data from actor's table, ordering by gender (Females come first alphabetically)
+SELECT * FROM actors ORDER BY gender;
+-- orders selected data by actor's first_name alphabetically
+SELECT first_name, last_name, date_of_birth FROM actors ORDER BY first_name;
+
+SELECT * FROM movies;
+-- selects data from the movies table, ordering by release-date
+SELECT * FROM movies ORDER BY release_date;

@@ -105,12 +105,16 @@ SELECT * FROM movies WHERE movie_lang BETWEEN 'English' and 'Portuguese';
 -- orders the result returned by a specific column
 -- syntax:
 -- SELECT columns FROM table ORDER BY column;
+-- ASC - ascending 
+-- DESC - descending
 
 -- select data from actor's table, ordering by gender (Females come first alphabetically)
 SELECT * FROM actors ORDER BY gender;
--- orders selected data by actor's first_name alphabetically
+-- orders selected data by actor's first_name alphabetically (ascending)
 SELECT first_name, last_name, date_of_birth FROM actors ORDER BY first_name;
 
 SELECT * FROM movies;
--- selects data from the movies table, ordering by release-date
+-- selects data from the movies table, ordering by release-date (ascending)
 SELECT * FROM movies ORDER BY release_date;
+
+SELECT first_name, last_name, date_of_birth FROM actors ORDER BY date_of_birth DESC;

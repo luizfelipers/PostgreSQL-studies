@@ -80,3 +80,21 @@ SELECT * FROM actors WHERE first_name LIKE 'Pe_';
 
 -- retorna todos os dados que o primeiro nome seja composto por 5 letras, e a 3a e a 4a letra sejam respectivamente 'r' e 'l'
 SELECT * FROM actors WHERE first_name LIKE '__rl_';
+
+-- BETWEEN
+-- retorna os dados em que a condição pesquisada esteja entre os dados passados por parâmetro
+-- syntax:
+-- SELECT columns FROM table WHERE column BETWEEN value1 AND value2;
+
+SELECT * FROM movies;
+
+-- retorna os dados onde o id do filme está entre 1 e 8
+SELECT * FROM movies WHERE movie_id BETWEEN 1 AND 8;
+
+-- retorna dados em que a data está entre os valores passados
+SELECT movie_name, movie_lang, release_date FROM movies WHERE release_date BETWEEN '1980-01-01' AND '2003-01-01';
+-- retorna dados em que durem de 90 até 140 mins
+SELECT movie_name, movie_length, release_date FROM movies WHERE movie_length BETWEEN 90 AND 140;
+
+-- seleciona dados onde os valores da linguagem estejam entre English e Portuguese. É medido de forma alfabética
+SELECT * FROM movies WHERE movie_lang BETWEEN 'English' and 'Portuguese';

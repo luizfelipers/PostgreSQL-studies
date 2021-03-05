@@ -62,4 +62,21 @@
 	SELECT movie_name, movie_lang FROM movies WHERE movie_lang >= 'English';
 	SELECT movie_name, movie_lang FROM movies WHERE movie_lang <= 'English';
 	
-	
+	SELECT first_name, last_name FROM actors WHERE first_name = 'Bruce';
+
+-- LIKE statement
+-- LIKE regards patterns in data
+-- syntax:
+-- SELECT columns FROM table WHERE column LIKE '_%something%_'
+-- %: any pattern in this position
+-- _: a character in this position
+
+-- retorna todos os dados que o primeiro nome começa com P
+SELECT * FROM actors WHERE first_name LIKE 'P%';
+-- retorna todos os dados que contenham a letra r no meio do primeiro nome
+SELECT * FROM actors WHERE first_name LIKE '%r%'
+-- retorna todos os dados que comecem por 'Pe' e tenham mais um caractere
+SELECT * FROM actors WHERE first_name LIKE 'Pe_';
+
+-- retorna todos os dados que o primeiro nome seja composto por 5 letras, e a 3a e a 4a letra sejam respectivamente 'r' e 'l'
+SELECT * FROM actors WHERE first_name LIKE '__rl_';

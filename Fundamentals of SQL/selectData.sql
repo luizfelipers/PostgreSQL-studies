@@ -144,3 +144,24 @@ SELECT DISTINCT movie_lang FROM movies ORDER BY movie_lang;
  -- não retorna valores nulos
  SELECT * FROM movie_revenues ORDER BY domestic_takings DESC;
  SELECT * FROM movie_revenues WHERE domestic_takings IS NOT NULL ORDER BY domestic_takings DESC;
+ 
+ -- ALIAS
+-- renomeia uma coluna dentro da query
+--syntax:
+-- SELECT column AS newname FROM table;
+	
+-- renomeia na query, a coluna last_name para surname
+SELECT last_name AS surname FROM directors;
+
+-- renomeia as colunas retornadas pela query, como: nome, sobrenome e nascimento
+SELECT first_name AS nome, last_name AS sobrenome, date_of_birth AS nascimento FROM directors;
+
+-- renomeia as colunas para: nome, sobrenome e nascimento, e ordena pela coluna com nome atualizado
+SELECT first_name AS nome, last_name AS sobrenome, date_of_birth AS nascimento 
+FROM directors ORDER BY sobrenome;
+
+-- renomeia as colunas para: nome, sobrenome e nascimento, e ordena pela coluna com nome atualizado,
+-- mas procura resultados que sigam um padrão numa coluna com nome antigo
+SELECT first_name AS nome, last_name AS sobrenome, date_of_birth AS nascimento 
+FROM directors WHERE last_name LIKE 'A%' ORDER BY sobrenome;
+

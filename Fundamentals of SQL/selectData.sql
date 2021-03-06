@@ -118,3 +118,17 @@ SELECT * FROM movies;
 SELECT * FROM movies ORDER BY release_date;
 
 SELECT first_name, last_name, date_of_birth FROM actors ORDER BY date_of_birth DESC;
+
+-- FETCH FIRST
+-- retorna os primeiros dados do resultado de uma query
+-- syntax:
+-- SELECT column FROM table FETCH FIRST N ROW ONLY;
+-- RETURN THE FIRST N ROWS OF A QUERY
+-- parecido com comando LIMIT
+
+-- Seleciona os primeiros 5 valores de uma query
+SELECT movie_id, movie_name FROM movies FETCH FIRST 5 ROW ONLY;
+-- Seleciona os primeiros 10 valores da query
+SELECT movie_id, movie_name FROM movies FETCH FIRST 10 ROW ONLY;
+-- seleciona os 5 primeiros valores da query, depois de um deslocamento de 5 registros
+SELECT movie_id, movie_name FROM movies OFFSET 5 ROWS FETCH FIRST 5 ROW ONLY;

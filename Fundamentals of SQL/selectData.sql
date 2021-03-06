@@ -136,3 +136,11 @@ SELECT movie_id, movie_name FROM movies OFFSET 5 ROWS FETCH FIRST 5 ROW ONLY;
 -- DISTINCT
 -- seleciona uma coleção dos valores distintos da coluna pesquisada pela query
 SELECT DISTINCT movie_lang FROM movies ORDER BY movie_lang;
+
+-- NULL values
+ --NULL values means missing data from a certain column of a table
+ SELECT * FROM actors WHERE date_of_birth IS NULL;
+ -- NOT NULL
+ -- não retorna valores nulos
+ SELECT * FROM movie_revenues ORDER BY domestic_takings DESC;
+ SELECT * FROM movie_revenues WHERE domestic_takings IS NOT NULL ORDER BY domestic_takings DESC;

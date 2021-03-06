@@ -132,3 +132,7 @@ SELECT movie_id, movie_name FROM movies FETCH FIRST 5 ROW ONLY;
 SELECT movie_id, movie_name FROM movies FETCH FIRST 10 ROW ONLY;
 -- seleciona os 5 primeiros valores da query, depois de um deslocamento de 5 registros
 SELECT movie_id, movie_name FROM movies OFFSET 5 ROWS FETCH FIRST 5 ROW ONLY;
+
+-- DISTINCT
+-- seleciona uma coleção dos valores distintos da coluna pesquisada pela query
+SELECT DISTINCT movie_lang FROM movies ORDER BY movie_lang;

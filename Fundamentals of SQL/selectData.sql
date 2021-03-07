@@ -176,4 +176,30 @@ SELECT first_name, last_name, CONCAT(first_name,' ', last_name) AS nomao FROM di
 SELECT first_name, last_name, CONCAT(first_name,' ', last_name) AS nomao FROM actors;
 
 
+-- AGGREGATE FUNCTIONS
 
+-- count 
+-- conta os valores de cada coluna (data entries of a column)
+-- syntax
+-- SELECT COUNT(coluna) FROM table;
+
+SELECT COUNT(*) FROM movie_revenues;
+
+SELECT COUNT (international_takings) FROM movie_revenues;
+
+SELECT COUNT(*) FROM movies;
+
+SELECT COUNT(*) FROM movies WHERE movie_lang = 'Spanish';
+
+SELECT COUNT(*) FROM movies WHERE movie_lang = 'English';
+
+-- sum
+--soma os valores de uma determinada coluna
+-- syntax:
+-- SELECT SUM(column) FROM table;
+
+-- soma os valores da tabela movie_revenues
+SELECT SUM(domestic_takings) FROM movie_revenues;
+
+-- soma os valores de arrecadação domestica da tabela movie_revenues, apenas dos filmes tiveram um ganho domestico maior que 200
+SELECT SUM(domestic_takings) FROM movie_revenues WHERE domestic_takings > 200.0;

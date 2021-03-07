@@ -165,3 +165,15 @@ FROM directors ORDER BY sobrenome;
 SELECT first_name AS nome, last_name AS sobrenome, date_of_birth AS nascimento 
 FROM directors WHERE last_name LIKE 'A%' ORDER BY sobrenome;
 
+-- CONCATENATION
+-- unites 2 strings
+-- syntax:
+-- SELECT CONCAT(column1, column2) FROM tablename;
+
+-- concatenating the first name to the last name, with a blank space in the middle as separator
+SELECT first_name, last_name, CONCAT(first_name,' ', last_name) AS nomao FROM directors;
+-- concatenating the first name to the last name, with a blank space in the middle as separator
+SELECT first_name, last_name, CONCAT(first_name,' ', last_name) AS nomao FROM actors;
+
+
+

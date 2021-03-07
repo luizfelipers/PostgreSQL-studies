@@ -203,3 +203,17 @@ SELECT SUM(domestic_takings) FROM movie_revenues;
 
 -- soma os valores de arrecadação domestica da tabela movie_revenues, apenas dos filmes tiveram um ganho domestico maior que 200
 SELECT SUM(domestic_takings) FROM movie_revenues WHERE domestic_takings > 200.0;
+
+
+-- MIN and MAX
+-- retorna o menor/ maior valor de uma determinada coluna
+
+-- SELECT MAX(coluna) FROM tabela;
+-- SELECT MIN(coluna) FROM tabela;
+
+SELECT MAX(movie_length) FROM movies;
+SELECT MAX(movie_length) FROM movies WHERE movie_lang = 'Japanese';
+SELECT MAX(domestic_takings) FROM movie_revenues;
+
+-- max aggregate function when applied to a varchar, returns the last alphabetical character
+SELECT MAX(movie_name) FROM movies;

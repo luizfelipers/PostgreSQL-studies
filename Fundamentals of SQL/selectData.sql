@@ -233,3 +233,21 @@ SELECT movie_lang, AVG(movie_length) FROM movies GROUP BY movie_lang;
 SELECT movie_lang, age_certificate, AVG(movie_length) FROM movies GROUP BY movie_lang, age_certificate;
 
 SELECT movie_lang, age_certificate, AVG(movie_length) FROM movies WHERE movie_length > 120 GROUP BY movie_lang, age_certificate;
+
+
+-- mathematical operators
+-- addition, subtraction, division, multiplication and modulus
+-- pegar uma coluna e realizar uma operação matemática com outra
+--SELECT column1 OPERATOR column2 FROM tablename;
+
+SELECT 5+6 AS addition;
+
+SELECT 8-3 AS subtraction;
+
+SELECT 20 / 4 AS division;
+
+SELECT 3 * 4 AS multiplication;
+
+SELECT 13 % 3 AS modulus;
+
+SELECT movie_id, (domestic_takings + international_takings) AS total_revenue FROM movie_revenues;

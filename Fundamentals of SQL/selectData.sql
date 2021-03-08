@@ -217,3 +217,19 @@ SELECT MAX(domestic_takings) FROM movie_revenues;
 
 -- max aggregate function when applied to a varchar, returns the last alphabetical character
 SELECT MAX(movie_name) FROM movies;
+
+--AVG
+--calcula a média (average) de uma determinada coluna
+-- syntax:
+-- SELECT AVG(column) FROM table
+SELECT AVG(movie_length) FROM movies;
+
+-- GROUP BY
+-- select column1, AGGFUNCTION(column2) from table GROUP BY column1
+SELECT movie_lang, COUNT(movie_lang) FROM movies GROUP BY movie_lang;
+
+SELECT movie_lang, AVG(movie_length) FROM movies GROUP BY movie_lang;
+-- returns a combination of movieLang and ageCertificate, with the movie_length of every distinct pair of movie_lang and agecertificate
+SELECT movie_lang, age_certificate, AVG(movie_length) FROM movies GROUP BY movie_lang, age_certificate;
+
+SELECT movie_lang, age_certificate, AVG(movie_length) FROM movies WHERE movie_length > 120 GROUP BY movie_lang, age_certificate;

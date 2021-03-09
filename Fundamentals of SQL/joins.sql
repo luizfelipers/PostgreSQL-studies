@@ -27,4 +27,9 @@
 */
 
 -- retorna colunas da tabela directors, e o nome do filme da tabela movies, juntando directors e movies, onde a chave primária de directors é igual á chave estrangeira de movies referente aos diretores
-SELECT directors.director_id, directors.first_name, directors.last_name, movies.movie_name FROM directors INNER JOIN movies ON directors.id = movies.director_id;
+SELECT directors.id, directors.first_name, directors.last_name, movies.movie_name FROM directors INNER JOIN movies ON directors.id = movies.director_id;
+
+-- jeito abreviado 
+-- escrever o nome da tabela1 como t1, na primeira declaração explícita da tabela, e assim vai
+
+SELECT d.id, d.first_name, d.last_name, m.movie_name FROM directors d INNER JOIN movies m ON d.id = m.director_id;

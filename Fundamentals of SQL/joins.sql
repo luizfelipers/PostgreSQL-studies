@@ -41,3 +41,8 @@ SELECT mo.movie_name, mr.domestic_takings, mr.international_takings,(mr.domestic
  
 	SELECT mo.movie_name, mr.domestic_takings, mr.international_takings
 	FROM movies mo JOIN movie_revenues mr ON mo.movie_id = mr.movie_id;
+	
+-- SELECT the directors first and last names, the movie names and release dates for all chinese, korean and japanese movies
+	SELECT * FROM directors;
+	SELECT * FROM movies;
+	SELECT d.first_name, d.last_name, m.movie_name, m.release_date FROM directors d JOIN movies m ON d.id = m.director_id  WHERE m.movie_lang IN('Chinese','Korean','Japanese')  ;

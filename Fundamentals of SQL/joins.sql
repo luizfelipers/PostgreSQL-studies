@@ -33,3 +33,11 @@ SELECT directors.id, directors.first_name, directors.last_name, movies.movie_nam
 -- escrever o nome da tabela1 como t1, na primeira declaração explícita da tabela, e assim vai
 
 SELECT d.id, d.first_name, d.last_name, m.movie_name FROM directors d INNER JOIN movies m ON d.id = m.director_id;
+
+-- pesquisando dados de filmes e rendimento de cada filme, criando uma coluna que soma os ganhos domesticos e internacionais, e ordenando crescentemente pelos ganhos
+SELECT mo.movie_name, mr.domestic_takings, mr.international_takings,(mr.domestic_takings + mr.international_takings) as total_revenue 
+	FROM movies mo JOIN movie_revenues mr ON mo.movie_id = mr.movie_id ORDER BY total_revenue ;
+	
+ 
+	SELECT mo.movie_name, mr.domestic_takings, mr.international_takings
+	FROM movies mo JOIN movie_revenues mr ON mo.movie_id = mr.movie_id;

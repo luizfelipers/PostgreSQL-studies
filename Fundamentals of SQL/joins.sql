@@ -46,3 +46,11 @@ SELECT mo.movie_name, mr.domestic_takings, mr.international_takings,(mr.domestic
 	SELECT * FROM directors;
 	SELECT * FROM movies;
 	SELECT d.first_name, d.last_name, m.movie_name, m.release_date FROM directors d JOIN movies m ON d.id = m.director_id  WHERE m.movie_lang IN('Chinese','Korean','Japanese')  ;
+	
+	
+	-- select the movie names, release dates and international takings of all english language movies
+	SELECT * FROM movie_revenues;
+	SELECT m.movie_name, m.release_date, mr.international_takings FROM movies m INNER JOIN movie_revenues mr ON m.movie_id = mr.movie_id WHERE m.movie_lang = 'English';
+	
+	-- select the movie names, domestic takings and international takings for all movies with either missing domestic takings or missing international values and order the results by movie name
+	SELECT m.movie_name, mr.domestic_takings, mr.international_takings FROM movies m INNER JOIN movie_revenues mr ON m.movie_id = mr.movie_id WHERE mr.domestic_takings IS NULL OR mr.international_takings IS NULL ORDER BY m.movie_name;

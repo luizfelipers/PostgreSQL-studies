@@ -54,3 +54,38 @@ SELECT mo.movie_name, mr.domestic_takings, mr.international_takings,(mr.domestic
 	
 	-- select the movie names, domestic takings and international takings for all movies with either missing domestic takings or missing international values and order the results by movie name
 	SELECT m.movie_name, mr.domestic_takings, mr.international_takings FROM movies m INNER JOIN movie_revenues mr ON m.movie_id = mr.movie_id WHERE mr.domestic_takings IS NULL OR mr.international_takings IS NULL ORDER BY m.movie_name;
+
+-- LEFT JOIN
+	--retorna todos os dados da primeira tabela, e retorna apenas os dados correspondentes 
+	-- (referenciados pela chave estrangeira de uma tabela para primaria de outra)
+	-- da segunda tabela 
+	
+	--left join da tabela directors (1a tabela) com a tabela movies (2a tabela)
+	SELECT * FROM directors;
+	SELECT d.id, d.first_name, d.last_name, m.movie_name FROM directors d
+	LEFT JOIN movies m ON d.id = m.director_id;
+	
+	-- left join da tabela movies (1a tabela) com a tabela directors (2a tabela)
+	SELECT d.id, d.first_name, d.last_name, m.movie_name FROM movies m
+	LEFT JOIN directors d ON d.id = m.director_id;
+	
+	SELECT d.id, d.first_name, d.last_name, m.movie_name FROM directors d
+	JOIN movies m ON d.id = m.director_id;
+	
+	-- right join 
+	-- retorna todos os dados da tabela 2 e apenas os dados correspondentes da tabela 1
+	SELECT d.id, d.first_name, d.last_name, m.movie_name FROM directors d 
+	RIGHT JOIN movies m ON d.id = m.director_id;
+	
+	-- retorna todos os dados da tabela 2 e apenas os dados da tabela 1 que são correspondentes,
+	-- e filtra apenas os que são para 18+ (pornow ou nem)
+	SELECT d.id, d.first_name, d.last_name, m.movie_name FROM movies m 
+	RIGHT JOIN directors d ON d.id = m.director_id 
+	WHERE m.age_certificate = '18';
+	
+	-- FULL JOIN
+	-- retorna todos os dados de ambas as tabelas, mesmo se existirem valores nulos
+	SELECT d.id, d.first_name, d.last_name, m.movie_name FROM directors d 
+	FULL JOIN movies m ON d.id = m.director_id;
+	
+	

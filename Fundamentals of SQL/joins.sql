@@ -88,4 +88,37 @@ SELECT mo.movie_name, mr.domestic_takings, mr.international_takings,(mr.domestic
 	SELECT d.id, d.first_name, d.last_name, m.movie_name FROM directors d 
 	FULL JOIN movies m ON d.id = m.director_id;
 	
+-- challenges
+
+--1 use a left join to select the first and last names of all british directors
+-- and the names and age certificates of the movies that they directed
+
+SELECT * FROM movies;
+SELECT d.first_name, d.last_name, m.movie_name, m.age_certificate FROM directors d 
+LEFT JOIN movies m ON m.director_id = d.id WHERE d.nationality = 'British';
+
+-- 2 count the number of movies that each director has directed
+SELECT CONCAT(  d.first_name, d.last_name) AS diretor, COUNT(mo.movie_id) FROM directors d
+LEFT JOIN movies mo ON d.id = mo.director_id GROUP BY diretor;
+
+-- select the first name and last name from directors table,
+-- movie name, and then the movie revenues domestic and international takings
+SELECT * FROM directors;
+SELECT * FROM movies;
+SELECT * FROM movie_revenues;
+SELECT d.first_name, d.last_name, m.movie_name, mr.domestic_takings,
+mr.international_takings FROM directors d INNER JOIN movies m ON d.id = m.director_id
+INNER JOIN movie_revenues mr ON m.movie_id = mr.movie_id;
+
+-- select the actors first and last name and the movie name in 1 sql query
+SELECT * FROM actors;
+SELECT * FROM movies;
+SELECT * FROM movies_actors;
+-- usar a tabela de junção para poder realizar essa query
+--usar a tabela "movies_actors" para realizar uma query que une os atores aos seus filmes
+SELECT a.first_name, a.last_name, m.movie_name FROM actors a 
+JOIN movies_actors ma ON a.actor_id = ma.actor_id
+JOIN movies m ON m.movie_id = ma.movie_id
+ORDER BY m.movie_name;
+	
 	

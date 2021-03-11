@@ -120,5 +120,46 @@ SELECT a.first_name, a.last_name, m.movie_name FROM actors a
 JOIN movies_actors ma ON a.actor_id = ma.actor_id
 JOIN movies m ON m.movie_id = ma.movie_id
 ORDER BY m.movie_name;
+
+SELECT d.first_name, d.last_name, m.movie_name, a.first_name, a.last_name,
+mr.international_takings, mr.domestic_takings FROM directors d INNER JOIN
+movies m ON m.director_id = d.id INNER JOIN movies_actors mo ON 
+m.movie_id = mo.movie_id INNER JOIN actors a ON mo.actor_id = a.actor_id
+INNER JOIN movie_revenues mr ON mr.movie_id = m.movie_id;
+
+SELECT d.first_name, d.last_name, m.movie_name, a.first_name, a.last_name,
+mr.international_takings, mr.domestic_takings FROM directors d INNER JOIN
+movies m ON m.director_id = d.id INNER JOIN movies_actors mo ON 
+m.movie_id = mo.movie_id INNER JOIN actors a ON mo.actor_id = a.actor_id
+INNER JOIN movie_revenues mr ON mr.movie_id = m.movie_id ORDER BY m.movie_name;
+
+SELECT a.first_name, a.last_name, m.movie_name FROM actors a 
+INNER JOIN movies_actors ma ON ma.actor_id = a.actor_id 
+INNER JOIN movies m ON ma.movie_id = m.movie_id
+INNER JOIN directors d ON m.director_id = d.id;
+
+SELECT a.first_name, a.last_name, m.movie_name FROM actors a 
+INNER JOIN movies_actors ma ON ma.actor_id = a.actor_id 
+INNER JOIN movies m ON ma.movie_id = m.movie_id
+INNER JOIN directors d ON m.director_id = d.id
+WHERE d.first_name='Wes';
 	
-	
+-- UNION
+-- combina duas tabelas em uma só, excluindo valores repetidos de cada coluna
+SELECT first_name, last_name FROM directors
+UNION
+SELECT first_name, last_name FROM actors;
+
+-- realizando Union com WHERE em ambas as queries que serão juntadas
+SELECT first_name, last_name FROM directors
+WHERE nationality='American'
+UNION
+SELECT first_name, last_name FROM actors
+WHERE gender = 'F';
+
+-- Union All
+-- semelhante ao UNION, mas retorna registros repetidos
+SELECT first_name FROM directors
+UNION ALL 
+SELECT first_name FROM actors
+ORDER BY first_name; -- retornará múltiplos valores iguais (ex: James).

@@ -178,3 +178,22 @@ UNION
 SELECT first_name, last_name FROM actors WHERE actors.date_of_birth BETWEEN '1960-01-01' AND '1960-12-31'
 ORDER BY last_name;
 
+-- INTERSECT
+-- retorna todos os registros que são comuns em ambas as tabelas
+SELECT first_name FROM actors
+INTERSECT
+SELECT first_name FROM directors
+ORDER BY first_name;
+
+-- retorna os registros da tabela 1 que não estão contidos na tabela 2
+SELECT first_name FROM actors
+EXCEPT
+SELECT first_name FROM directors
+WHERE nationality='American'
+ORDER BY first_name;
+
+SELECT first_name FROM directors
+WHERE nationality='American'
+EXCEPT
+SELECT first_name FROM actors
+ORDER BY first_name;

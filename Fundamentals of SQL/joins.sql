@@ -185,6 +185,7 @@ INTERSECT
 SELECT first_name FROM directors
 ORDER BY first_name;
 
+-- EXCEPT
 -- retorna os registros da tabela 1 que não estão contidos na tabela 2
 SELECT first_name FROM actors
 EXCEPT
@@ -197,3 +198,16 @@ WHERE nationality='American'
 EXCEPT
 SELECT first_name FROM actors
 ORDER BY first_name;
+
+-- exercicios Intersect & Except
+-- intersect the first name, last name and date of birth columns in the directors and actors table
+SELECT first_name, last_name, date_of_birth FROM directors
+INTERSECT
+SELECT first_name, last_name, date_of_birth FROM actors;
+
+-- retrieve the first names of male actors unless they have the same first name as any
+-- british directors
+
+SELECT first_name FROM actors WHERE gender ='M'
+EXCEPT
+SELECT first_name FROM directors WHERE nationality='British';

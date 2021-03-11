@@ -163,3 +163,18 @@ SELECT first_name FROM directors
 UNION ALL 
 SELECT first_name FROM actors
 ORDER BY first_name; -- retornará múltiplos valores iguais (ex: James).
+
+
+-- select the first names, last names and dates of birth from directors and actors
+-- ordering the results by the date of birth
+SELECT first_name, last_name, date_of_birth FROM directors
+UNION ALL
+SELECT first_name, last_name, date_of_birth FROM actors
+ORDER BY date_of_birth;
+-- select the first and last names of all directors and actors born in 1960
+-- ordering the results by last name
+SELECT first_name, last_name FROM directors WHERE directors.date_of_birth BETWEEN '1960-01-01' AND '1960-12-31' 
+UNION 
+SELECT first_name, last_name FROM actors WHERE actors.date_of_birth BETWEEN '1960-01-01' AND '1960-12-31'
+ORDER BY last_name;
+

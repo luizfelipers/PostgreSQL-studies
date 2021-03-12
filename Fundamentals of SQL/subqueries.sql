@@ -82,3 +82,26 @@ WHERE movie_length < 126.13
  (SELECT movie_id FROM movie_revenues WHERE international_takings > domestic_takings);
  
  
+-- challenges
+ -- select first and last names of all actors older than Marlon Brando
+ 
+ SELECT first_name, last_name FROM actors WHERE date_of_birth < 
+ (SELECT date_of_birth FROM actors WHERE first_name='Marlon' AND last_name='Brando');
+ 
+ SELECT date_of_birth FROM actors WHERE first_name='Marlon' AND last_name='Brando';
+ 
+ -- select the movie names of all movies that have domestic takings above 300 million
+ 
+ SELECT * FROM movie_revenues WHERE domestic_takings IS NOT NULL ORDER BY domestic_takings;
+ 
+ SELECT movie_name FROM movies WHERE movie_id IN 
+(SELECT movie_id FROM movie_revenues WHERE domestic_takings > 300 );
+ 
+ -- return the shortest and longest movie length for movies with
+ -- an above average domestic takings
+ 
+ SELECT MIN(movie_length) AS Shortest, MAX(movie_length) AS Longest
+ FROM movies JOIN movie_revenues ON movies.movie_id = movie_revenues.movie_id
+ WHERE domestic_takings >
+ (SELECT AVG(domestic_takings) FROM movie_revenues);
+ 

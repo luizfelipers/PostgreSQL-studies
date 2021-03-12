@@ -105,3 +105,22 @@ WHERE movie_length < 126.13
  WHERE domestic_takings >
  (SELECT AVG(domestic_takings) FROM movie_revenues);
  
+ -- correlated subqueries
+ 
+ SELECT a1.first_name, a1.last_name, a1.date_of_birth FROM actors a1
+WHERE a1.date_of_birth = (
+SELECT MIN(a2.date_of_birth) FROM actors a2 WHERE a2.gender = a1.gender
+);
+
+SELECT m1.movie_name, m1.movie_length, m1.age_certificate FROM movies m1
+WHERE m1.movie_length > (
+SELECT AVG(m2.movie_length) FROM movies m2 WHERE m2.age_certificate = m1.age_certificate 
+);
+
+--ordenando pela classificação etária
+SELECT m1.movie_name, m1.movie_length, m1.age_certificate FROM movies m1
+WHERE m1.movie_length > (
+SELECT AVG(m2.movie_length) FROM movies m2 WHERE m2.age_certificate = m1.age_certificate 
+)
+ORDER BY m1.age_certificate;
+ 

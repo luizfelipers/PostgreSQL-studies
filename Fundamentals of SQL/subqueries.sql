@@ -34,3 +34,51 @@ WHERE movie_length >
  */
  
  
+-- realiza primeiro o cálculo da inner query e passa o resultado para realizar a outer query
+SELECT movie_name, movie_length FROM movies
+WHERE movie_length <
+(SELECT AVG(movie_length) FROM movies);
+
+-- inner query contida na query acima
+SELECT AVG(movie_length) FROM movies; -- 126.13
+
+-- retorna a mesma coisa que a primeira query com subquery, mas para isso,
+-- é preciso saber o valor de antemão
+SELECT movie_name, movie_length FROM movies
+WHERE movie_length < 126.13
+
+-- outra subquery
+ -- retornar uma lista com o primeiro e ultimo nome de todos os diretores que são 
+ -- mais novos que James Cameron
+ 
+ SELECT first_name, last_name FROM directors
+ WHERE date_of_birth >
+ (SELECT date_of_birth FROM directors WHERE first_name ='James' AND last_name='Cameron');
+ 
+ SELECT date_of_birth FROM directors WHERE first_name ='James' AND last_name='Cameron';
+ 
+ -- retornar uma lista com o primeiro e ultimo nome de todos os diretores que são
+ -- mais novos que Tom Cruise (ator)
+ SELECT first_name, last_name FROM directors
+ WHERE date_of_birth > -- usando dados de uma tabela diferente (actors)
+ (SELECT date_of_birth FROM actors WHERE first_name='Tom' AND last_name='Cruise');
+ 
+ -- usar a keyword IN para passar múltiplos valores da Inner Query para a Outer Query
+ -- retornar movie name da tabela movies onde os international takings sao maiores que domestic takings
+ SELECT * FROM movies;
+ 
+ SELECT movie_name FROM movies WHERE movie_id IN 
+ (SELECT movie_id from movie_revenues WHERE international_takings > domestic_takings);
+ 
+ 
+ -- possível usar joins tb
+ -- retornar nome do filme e o diretor onde os filmes tiveram international_taking > domestic taking
+ 
+ SELECT * FROM directors;
+ SELECT * FROM movies;
+ SELECT m.movie_name, d.first_name, d.last_name FROM movies m 
+ JOIN directors d ON m.director_id = d.id
+ WHERE movie_id IN 
+ (SELECT movie_id FROM movie_revenues WHERE international_takings > domestic_takings);
+ 
+ 

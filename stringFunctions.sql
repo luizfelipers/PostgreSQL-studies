@@ -17,5 +17,11 @@ SELECT LOWER('STRING'); -- recebe uma string como parâmetro e retorna a string 
 SELECT LOWER(column_name) FROM table;
 
 */
- 
+ SELECT * FROM actors;
+SELECT UPPER('fala mais alto!');
+SELECT UPPER(first_name), UPPER(last_name) FROM actors;
+
+SELECT LOWER('PÁRA DE GRITAR MLK!');
+
+SELECT LOWER(movie_name) FROM movies;
 
